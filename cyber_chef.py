@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # encoding: utf-8
 
+import os
 import sys
 import base64
 import re
@@ -10,6 +11,33 @@ from workflow import Workflow3, web, ICON_WARNING, ICON_NOTE, ICON_INFO
 
 log = None
 RECIPE_RE = re.compile(r'^(?P<recipe>[a-zA-Z0-9_\.]+)(?P<args>\(.*?\))?[ ]?')
+
+icons_dir = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'icons')
+ICON_ABC = os.path.join(icons_dir, 'abc.png')
+ICON_CALCULATOR = os.path.join(icons_dir, 'calculator.png')
+ICON_TOOLS = os.path.join(icons_dir, 'construction-and-tools.png')
+ICON_DIGITAL = os.path.join(icons_dir, 'digital.png')
+ICON_DOWN_ARROW = os.path.join(icons_dir, 'down-arrow.png')
+ICON_EARTH = os.path.join(icons_dir, 'earth-grid.png')
+ICON_FOLDER = os.path.join(icons_dir, 'folder.png')
+ICON_MAGNIFIER = os.path.join(icons_dir, 'magnifying-glass.png')
+ICON_LOCK = os.path.join(icons_dir, 'padlock.png')
+ICON_TIME = os.path.join(icons_dir, 'time.png')
+ICON_CODE = os.path.join(icons_dir, 'coding.png')
+ICON_CERT = os.path.join(icons_dir, 'contract.png')
+ICONS = {
+    'networking': ICON_EARTH,
+    'language': ICON_ABC,
+    'encryption / encoding': ICON_LOCK,
+    'code tidy': ICON_CODE,
+    'data format': ICON_DIGITAL,
+    'public key': ICON_CERT,
+    'extractors': ICON_DOWN_ARROW,
+    'forensics': ICON_MAGNIFIER,
+    'utils': ICON_TOOLS,
+    'date / time': ICON_TIME,
+    'arithmetic / logic': ICON_CALCULATOR,
+}
 
 
 def get_recipes():
@@ -63,9 +91,12 @@ def main(wf):
             wf.add_item('No matches', icon=ICON_WARNING)
 
         for item in items:
+            category = recipes[item]['category'].lower()
+            icon = ICONS[category] if category in ICONS else None
             wf.add_item(title=recipes[item]['title'],
-                        subtitle=recipes[item]['category'],
-                        autocomplete=item)
+                        subtitle=category,
+                        autocomplete=item,
+                        icon=icon)
     else:
         recipe = matches.group('recipe')
         args = matches.group('args')
