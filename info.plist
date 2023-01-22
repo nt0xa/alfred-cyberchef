@@ -3,16 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>io.russtone.cyberchef</string>
+	<string>io.russtone.alfred-cyberchef</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
-		<key>5D1E0030-6635-463C-AE5E-A14FC4090AA1</key>
+		<key>0229ED13-43B3-408D-85A0-3123F0B958BC</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>E110E8AE-EB2E-4AA2-9B80-DD99827611A8</string>
+				<string>397BAB93-722F-427E-B088-600A56DB1D26</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -25,13 +25,34 @@
 	<key>createdby</key>
 	<string>russtone</string>
 	<key>description</key>
-	<string>Alfred workflow for easy interaction with CyberChef</string>
+	<string>Alfred workflow for easy interaction with CyberChef (https://gchq.github.io/CyberChef)</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Cyber Chef</string>
+	<string>CyberChef</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<true/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://gchq.github.io/CyberChef/#{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>397BAB93-722F-427E-B088-600A56DB1D26</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -39,6 +60,8 @@
 				<false/>
 				<key>alfredfiltersresultsmatchmode</key>
 				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -58,7 +81,7 @@
 				<key>runningsubtext</key>
 				<string>processing...</string>
 				<key>script</key>
-				<string>python cyber_chef.py "{query}"</string>
+				<string>/usr/bin/python3 main.py "{query}"</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>
@@ -68,57 +91,40 @@
 				<key>title</key>
 				<string>Cyber Chef</string>
 				<key>type</key>
-				<integer>0</integer>
+				<integer>5</integer>
 				<key>withspace</key>
 				<true/>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>5D1E0030-6635-463C-AE5E-A14FC4090AA1</string>
+			<string>0229ED13-43B3-408D-85A0-3123F0B958BC</string>
 			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>E110E8AE-EB2E-4AA2-9B80-DD99827611A8</string>
-			<key>version</key>
-			<integer>1</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
-		<key>5D1E0030-6635-463C-AE5E-A14FC4090AA1</key>
+		<key>0229ED13-43B3-408D-85A0-3123F0B958BC</key>
 		<dict>
 			<key>xpos</key>
-			<integer>280</integer>
+			<real>175</real>
 			<key>ypos</key>
-			<integer>40</integer>
+			<real>120</real>
 		</dict>
-		<key>E110E8AE-EB2E-4AA2-9B80-DD99827611A8</key>
+		<key>397BAB93-722F-427E-B088-600A56DB1D26</key>
 		<dict>
 			<key>xpos</key>
-			<integer>500</integer>
+			<real>415</real>
 			<key>ypos</key>
-			<integer>40</integer>
+			<real>120</real>
 		</dict>
 	</dict>
+	<key>userconfigurationconfig</key>
+	<array/>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://russtone.io</string>
 </dict>
 </plist>
